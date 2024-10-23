@@ -155,7 +155,8 @@ export class JobDbRepository {
 		 */
 		const JOB_RETURN_QUERY: FindOneAndUpdateOptions = {
 			returnDocument: 'after',
-			sort: this.connectOptions.sort
+			sort: this.connectOptions.sort,
+			includeResultMetadata: false
 		};
 
 		// Find ONE and ONLY ONE job and set the 'lockedAt' time so that job begins to be processed

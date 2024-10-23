@@ -101,7 +101,8 @@ class JobDbRepository {
          */
         const JOB_RETURN_QUERY = {
             returnDocument: 'after',
-            sort: this.connectOptions.sort
+            sort: this.connectOptions.sort,
+            includeResultMetadata: false
         };
         // Find ONE and ONLY ONE job and set the 'lockedAt' time so that job begins to be processed
         const result = await this.collection.findOneAndUpdate(JOB_PROCESS_WHERE_QUERY, JOB_PROCESS_SET_QUERY, JOB_RETURN_QUERY);
